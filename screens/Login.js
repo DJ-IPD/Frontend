@@ -18,6 +18,9 @@ export default function CreateAccount() {
   const hanglesignup = () => {
     navigation.navigate("SignUp")
   }
+  const handleLogin=()=>{
+    navigation.navigate("VerifyPhone");
+  }
   const [toggleValue, setToggleValue] = useState(false);
   const [text, onChangeText] = useState("Useless Text");
   const [number, onChangeNumber] = useState("");
@@ -77,9 +80,7 @@ export default function CreateAccount() {
         />
         <TouchableOpacity
           style={styles.button}
-          onPress={() => {
-            login(email, password);
-          }}
+          onPress={handleLogin}
         >
           <Text style={styles.text}>Login</Text>
         </TouchableOpacity>

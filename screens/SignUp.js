@@ -8,11 +8,16 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export default function SignUp() {
   const [name, onChangeName] = useState("");
   const [number, onChangeNumber] = useState("");
   const [location, onChangeLocation] = useState("");
+  const navigation = useNavigation();
+  const continueBtn=()=>{
+    navigation.navigate("VerifyPhone");
+  }
   return (
     <View style={styles.container}>
       <Image
@@ -82,9 +87,7 @@ export default function SignUp() {
       </View>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {
-          login(email, password);
-        }}
+        onPress={continueBtn}
       >
         <Text style={styles.text}>Continue</Text>
       </TouchableOpacity>
