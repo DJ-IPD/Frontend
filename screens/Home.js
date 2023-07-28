@@ -33,16 +33,18 @@ export default function App() {
           value={toggleValue}
           onPress={(val) => setToggleValue(val)}
           trackBar={{
-            width: 85,
+            width: 80,
             height: 40,
             radius: 25,
             activeBackgroundColor: "#42BD4E",
             inActiveBackgroundColor: "#5A5A5A",
+            borderWidth:8
           }}
           thumbButton={{
-            width: 35,
-            height: 35,
+            width: 40,
+            height: 40,
             borderWidth: 5,
+            padding:50,
             inActiveBackgroundColor: "#ffffff",
             activeBackgroundColor: "#fffffff",
           }}
