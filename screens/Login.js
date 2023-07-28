@@ -11,8 +11,13 @@ import {
 } from "react-native";
 import { useState } from "react";
 import Toggle from "react-native-toggle-element";
+import { useNavigation } from "@react-navigation/native";
 
-export default function App() {
+export default function CreateAccount() {
+  const navigation = useNavigation();
+  const hanglesignup = () => {
+    navigation.navigate("SignUp")
+  }
   const [toggleValue, setToggleValue] = useState(false);
   const [text, onChangeText] = useState("Useless Text");
   const [number, onChangeNumber] = useState("");
@@ -38,13 +43,13 @@ export default function App() {
             radius: 25,
             activeBackgroundColor: "#42BD4E",
             inActiveBackgroundColor: "#5A5A5A",
-            borderWidth:8
+            borderWidth: 8
           }}
           thumbButton={{
             width: 40,
             height: 40,
             borderWidth: 5,
-            padding:50,
+            padding: 50,
             inActiveBackgroundColor: "#ffffff",
             activeBackgroundColor: "#fffffff",
           }}
@@ -70,22 +75,21 @@ export default function App() {
           fontSize={16}
           padding={15}
         />
-         <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              login(email, password);
-            }}
-          >
-            <Text style={styles.text}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              login(email, password);
-            }}
-          >
-            <Text style={styles.text}>Sign Up</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            login(email, password);
+          }}
+        >
+          <Text style={styles.text}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+
+          style={styles.button}
+          onPress={hanglesignup}
+        >
+          <Text style={styles.text}>Sign Up</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -115,21 +119,21 @@ const styles = StyleSheet.create({
     height: 66,
     margin: 12,
     borderWidth: 3,
-    borderRadius:20,
+    borderRadius: 20,
     padding: 10,
-    letterSpacing:1.3
+    letterSpacing: 1.3
   },
   button: {
     backgroundColor: "#21212F",
     padding: 10,
-    height:66,
+    height: 66,
     marginHorizontal: 12,
     borderRadius: 24,
-    marginTop:"3%",
-    justifyContent:"center"
+    marginTop: "3%",
+    justifyContent: "center"
   },
-  text:{
-    color:"#ffffff",
+  text: {
+    color: "#ffffff",
     textAlign: "center",
     fontSize: 20,
     fontWeight: "bold",

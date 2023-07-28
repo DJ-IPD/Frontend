@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useState } from "react";
 
-export default function App() {
+export default function SignUp() {
   const [name, onChangeName] = useState("");
   const [number, onChangeNumber] = useState("");
   const [location, onChangeLocation] = useState("");
