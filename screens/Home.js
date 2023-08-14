@@ -2,7 +2,34 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { SvgUri, SvgXml } from "react-native-svg";
 import { LinearGradient } from "expo-linear-gradient";
-
+import { FlatList } from "react-native";
+const data = [
+  {
+    id: "1",
+    text: "Or kind rest bred with am shed then. In raptures building an bringing be",
+  },
+  {
+    id: "2",
+    text: "Started several mistake joy say painful removed reached end.",
+  },
+  { id: "3", text: "Item 4" },
+  { id: "4", text: "Item 5" },
+  { id: "5", text: "Item 6" },
+  { id: "6", text: "Item 7" },
+  { id: "7", text: "Item 8" },
+  { id: "8", text: "Item 9" },
+  { id: "9", text: "Item 10" },
+  { id: "10", text: "Item 11" },
+  { id: "11", text: "Item 12" },
+  { id: "12", text: "Item 13" },
+  { id: "13", text: "Item 14" },
+  { id: "14", text: "Item 15" },
+  { id: "15", text: "Item 16" },
+  { id: "16", text: "Item 17" },
+  { id: "17", text: "Item 18" },
+  { id: "18", text: "Item 19" },
+  // Add more items as needed
+];
 export default function Home() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,11 +37,37 @@ export default function Home() {
 <path d="M18.7211 26.7178C18.4908 28.5681 16.9126 30 15 30C13.0874 30 11.5092 28.5681 11.2789 26.7178C11.2469 26.4609 11.4599 26.25 11.7188 26.25H18.2812C18.5401 26.25 18.7531 26.4609 18.7211 26.7178Z" fill="#F23535"/>
 </svg>
 `;
-const filterXml=`<?xml version="1.0" encoding="UTF-8"?>
+  const filterXml = `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8.89583 17.5V12.8125H10.1458V14.5417H17.5V15.7917H10.1458V17.5H8.89583ZM2.5 15.7917V14.5417H7.64583V15.7917H2.5ZM6.39583 12.3333V10.625H2.5V9.375H6.39583V7.625H7.64583V12.3333H6.39583ZM8.89583 10.625V9.375H17.5V10.625H8.89583ZM12.3542 7.1875V2.5H13.6042V4.20833H17.5V5.45833H13.6042V7.1875H12.3542ZM2.5 5.45833V4.20833H11.1042V5.45833H2.5Z" fill="black"/>
 </svg>
-`
+`;
+
+  const renderItem = ({ item }) => (
+    <View
+      style={
+        item.id % 2 != 0
+          ? {
+              backgroundColor: "#FEE0CA",
+              height: "85%",
+              borderRadius: 30,
+              width: 150,
+              marginLeft: 20,
+              marginTop:10
+            }
+          : {
+              backgroundColor: "#FAFFC4",
+              height: "85%",
+              borderRadius: 30,
+              width: 150,
+              marginLeft: 20,
+              marginTop:10,
+            }
+      }
+    >
+      <Text style={styles.newsText}>{item.text}</Text>
+    </View>
+  );
   return (
     <View>
       <View
@@ -76,10 +129,25 @@ const filterXml=`<?xml version="1.0" encoding="UTF-8"?>
           </View>
         </TouchableOpacity>
       </View>
-      <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:"4%",marginTop:"6%"}}>
-        <Text style={{fontSize:15,fontWeight:"bold"}}>News</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginHorizontal: "4%",
+          marginTop: "6%",
+        }}
+      >
+        <Text style={{ fontSize: 15, fontWeight: "bold" }}>News</Text>
         <SvgXml width="20" height="20" xml={filterXml} />
       </View>
+
+      <FlatList
+        style={{ height: "50%", width: "100%" }}
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        horizontal={true} // Set this to make the list horizontal
+      />
     </View>
   );
 }
@@ -105,5 +173,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginVertical: "2.3%",
     marginHorizontal: 10,
+  },
+  item: {},
+  newsText: {
+    fontSize: 15,
+    fontWeight: "bold",
+    marginTop: "20%",
+    marginHorizontal: "10%",
   },
 });
