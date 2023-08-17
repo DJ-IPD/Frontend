@@ -6,13 +6,13 @@ import { FlatList } from "react-native";
 const data = [
   {
     id: "1",
-    text: "Or kind rest bred with am shed then. In raptures building an bringing be",
+    text: "हरियाणा सरकार द्वारा किसानों को हरियाणा कृषि अनुदान उप मिशन के तहत जिन मशीनों पर सब्सिडी दी जा रही है उनमें राइस ड्रायर, लेजर लैंड लेवलर, स्ट्रॉ बेलर,रीपर बाइंडर और रोटावेटर मशीन शामिल है",
   },
   {
     id: "2",
-    text: "Started several mistake joy say painful removed reached end.",
+    text: "प्रधानमंत्री किसान सम्मान निधि योजना के तहत किसानों को हर साल 6 हजार रुपये की आर्थिक मदद दी जाती है.",
   },
-  { id: "3", text: "Item 4" },
+  { id: "3", text: "किनारा कठिन पानी स्वागत संस्कृति सवारी सफाई बर्फ पृथ्वी वनस्पति मिलना बच्चों दिल पश्चिम आवश्यक जानकारी जगह गाना सूरज" },
   { id: "4", text: "Item 5" },
   { id: "5", text: "Item 6" },
   { id: "6", text: "Item 7" },
@@ -76,7 +76,7 @@ export default function Home() {
         <SvgXml width="30" height="30" xml={xml} />
       </View>
       <View>
-        <Text style={styles.mainText}>You're Welcome</Text>
+        <Text style={styles.mainText}>आपका स्वागत है</Text>
         <View
           style={{
             flexDirection: "row",
@@ -87,7 +87,7 @@ export default function Home() {
           <Image source={require("../assets/map_marker.png")} />
           <Text style={{ marginTop: 5, color: "#A9A1A1" }}>
             {" "}
-            Mumbai, Maharashtra
+            मुम्बई, Maharashtra
           </Text>
         </View>
       </View>
@@ -111,14 +111,15 @@ export default function Home() {
                 />
               </LinearGradient>
             </View>
-            <Text style={styles.btnText}>Find Labourers</Text>
+            <Text style={styles.btnText}>मजदूर ढूंढे</Text>
             <TouchableOpacity
               style={{
                 backgroundColor: "#F0F0F3",
                 width: 40,
                 height: 40,
                 borderRadius: 20,
-                left: 70,
+                position:"absolute",
+                right:0
               }}
             >
               <Image
