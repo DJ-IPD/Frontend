@@ -1,40 +1,63 @@
-import { View, Text,StyleSheet,FlatList } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import React from "react";
 const data = [
   {
     id: "1",
-    text: "हरियाणा सरकार द्वारा किसानों को हरियाणा कृषि अनुदान उप मिशन के तहत जिन मशीनों पर सब्सिडी दी जा रही है उनमें राइस ड्रायर,और रोटावेटर मशीन शामिल है",
+    text: "Rice Harvest",
+    time: "10:15 PM",
+    date: "10-March",
+    price: "5000",
+    status: "Details",
   },
   {
     id: "2",
-    text: "प्रधानमंत्री किसान सम्मान निधि योजना के तहत किसानों को हर साल 6 हजार रुपये की आर्थिक मदद दी जाती है.",
+    text: "Wheat Harvest",
+    time: "10:15 PM",
+    date: "10-March",
+    price: "5000",
+    status: "Done",
   },
   {
     id: "3",
-    text: "किनारा कठिन पानी स्वागत संस्कृति सवारी सफाई बर्फ पृथ्वी वनस्पति मिलना बच्चों दिल पश्चिम आवश्यक जानकारी जगह गाना सूरज",
+    text: "Wheat Harvest",
+    time: "10:15 PM",
+    date: "10-March",
+    price: "5000",
+    status: "Details",
   },
   {
     id: "4",
-    text: "किनारा कठिन पानी स्वागत संस्कृति सवारी सफाई बर्फ पृथ्वी वनस्पति मिलना बच्चों दिल पश्चिम आवश्यक जानकारी जगह गाना सूरज",
+    text: "Wheat Harvest",
+    time: "10:15 PM",
+    date: "10-March",
+    price: "5000",
+    status: "Details",
   },
   {
     id: "5",
-    text: "किनारा कठिन पानी स्वागत संस्कृति सवारी सफाई बर्फ पृथ्वी वनस्पति मिलना बच्चों दिल पश्चिम आवश्यक जानकारी जगह गाना सूरज",
+    text: "Wheat Harvest",
+    time: "10:15 PM",
+    date: "10-March",
+    price: "5000",
+    status: "Details",
   },
   {
     id: "6",
-    text: "किनारा कठिन पानी स्वागत संस्कृति सवारी सफाई बर्फ पृथ्वी वनस्पति मिलना बच्चों दिल पश्चिम आवश्यक जानकारी जगह गाना सूरज",
+    text: "हरियाणा सरकार द्वारा किसानों को हरियाणा कृषि अनुदान उप मिशन के तहत जिन मशीनों पर सब्सिडी दी जा रही है उनमें राइस ड्रायर,और रोटावेटर मशीन शामिल है",
+    time: "10:15 PM",
+    date: "10-March",
+    price: "5000",
+    status: "Details",
   },
   // Add more items as needed
 ];
 export default function Bookings() {
-
   const renderItem = ({ item }) => (
     <View
       style={
-        item.id % 2 != 0
+        item.status == "Details"
           ? {
-              backgroundColor: "#FEE0CA",
+              backgroundColor: "#E9FCE6",
               height: 160,
               borderRadius: 10,
               width: "85%",
@@ -42,8 +65,8 @@ export default function Bookings() {
               marginTop: 10,
             }
           : {
-              backgroundColor: "#FAFFC4",
-              height:160,
+              backgroundColor: "#FFEEE0",
+              height: 160,
               borderRadius: 10,
               width: "85%",
               marginHorizontal: 30,
@@ -51,32 +74,84 @@ export default function Bookings() {
             }
       }
     >
-      <Text style={styles.newsText}>{item.text}</Text>
-      
+      <Text style={styles.text}>{item.text}</Text>
+      <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "column" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              marginLeft: "20%",
+              marginVertical: "10%",
+            }}
+          >
+            <Image source={require("../assets/clock.png")} />
+            <Text style={styles.smallText}>{item.time}</Text>
+          </View>
+          <View style={{ flexDirection: "row", marginLeft: "20%" }}>
+            <Image source={require("../assets/calender.png")} />
+            <Text style={styles.smallText}>{item.date}</Text>
+          </View>
+        </View>
+        <View style={{flexDirection:"column"}}>
+          <View
+            style={{
+              flexDirection: "row",
+              marginLeft: "10%",
+              marginTop: "15%",
+            }}
+          >
+            <Image source={require("../assets/rupee.png")} />
+            <Text
+              style={{
+                color: "#565657",
+                fontSize: 15,
+                fontWeight: "bold",
+                marginLeft: "10%",
+              }}
+            >
+              {item.price}
+            </Text>
+          </View>
+          <View style={item.status == "Details"?{marginTop:"15%",backgroundColor:"#31A23F",borderRadius:30,height:30}:{marginTop:"15%",backgroundColor:"#E77913",borderRadius:30,height:30}}>
+            <Text style={{fontSize:14,color:"#ffffff",fontWeight:"bold",textAlign:"center",marginVertical:"4%"}}>{item.status}</Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 
   return (
     <View>
       <Text style={styles.mainText}>Bookings</Text>
-      
+
       <FlatList
-        style={{width:"100%",height:"72%"}}
+        style={{ width: "100%", height: "72%" }}
         data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-          // Set this to make the list horizontal
+        // Set this to make the list horizontal
       />
-
     </View>
-  )
+  );
 }
 
-const styles=StyleSheet.create({
-  mainText:{
-    fontSize:35,
-    textAlign:'center',
-    marginVertical:"4%",
-    fontWeight:"bold"
-  }
-})
+const styles = StyleSheet.create({
+  mainText: {
+    fontSize: 35,
+    textAlign: "center",
+    marginVertical: "4%",
+    fontWeight: "bold",
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginLeft: "10%",
+    marginTop: "7.5%",
+  },
+  smallText: {
+    color: "#565657",
+    fontSize: 15,
+    fontWeight: "bold",
+    marginLeft: "2.5%",
+  },
+});
