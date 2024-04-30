@@ -2,9 +2,11 @@ import { View, Text, StyleSheet, Image, Touchable, TouchableOpacity } from 'reac
 import React from 'react'
 import Toggle from "react-native-toggle-element";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Setting() {
   const [toggleValue, setToggleValue] = useState(false);
+  const navigation = useNavigation();
 
   return (
     <View>
@@ -28,11 +30,15 @@ export default function Setting() {
         <View>
           <Text style={{ fontSize: 18, color: "#ADADAD", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Account Settings</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+          navigation.navigate("EditProfile")
+        }}>
           <Text style={{ fontSize: 18, color: "#000000", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Edit Profile</Text>
           <Image style={styles.rightImg} source={require("../assets/right.png")} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity  onPress={() => {
+          navigation.navigate("ChangePassword")
+        }}>
           <Text style={{ fontSize: 18, color: "#000000", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Change Password</Text>
           <Image style={styles.rightImg} source={require("../assets/right.png")} />
         </TouchableOpacity>
@@ -76,7 +82,7 @@ export default function Setting() {
             borderBottomWidth: 1,
             width: "85%",
             marginHorizontal: "7%",
-            marginTop:"5%"
+            marginTop: "5%"
           }}
         />
         <View>
