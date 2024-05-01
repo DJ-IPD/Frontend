@@ -7,25 +7,29 @@ import ChangePassword from "../screens/ChangePassword";
 import AddPayment from "../screens/AddPayment";
 import AboutUs from "../screens/AboutUs";
 import PrivacyPolicy from "../screens/PrivacyPolicy";
+import SignUp from "../screens/SignUp";
+import Login from "../screens/Login";
+
 function Tab() {
- 
-    return (
-      <BottomTab/>
-    );
-  }
+
+  return (
+    <BottomTab />
+  );
+}
 export default function AppStack() {
   const Stack = createNativeStackNavigator();
 
   return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Tab" component={Tab}/>
-          <Stack.Screen name="EditProfile" component={EditProfile}/>
-          <Stack.Screen name="ChangePassword" component={ChangePassword}/>
-          <Stack.Screen name="AddPayment" component={AddPayment}/>
-          <Stack.Screen name="AboutUs" component={AboutUs}/>
-          <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy}/>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Tab" component={Tab} />
+      <Stack.Screen name="EditProfile" component={EditProfile} />
+      <Stack.Screen name="ChangePassword" component={ChangePassword} />
+      <Stack.Screen name="AddPayment" component={AddPayment} />
+      <Stack.Screen name="AboutUs" component={AboutUs} />
+      <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+      <Stack.Screen name="SignUp" component={SignUp} />
+    </Stack.Navigator>
 
-        </Stack.Navigator>
-        
   );
 }

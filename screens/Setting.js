@@ -31,9 +31,10 @@ export default function Setting() {
           <Text style={{ fontSize: 18, color: "#ADADAD", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Account Settings</Text>
         </View>
         <TouchableOpacity onPress={() => {
-          navigation.navigate("EditProfile")
+          // navigation.navigate("EditProfile")
+          navigation.navigate("Login");
         }}>
-          <Text style={{ fontSize: 18, color: "#000000", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Edit Profile</Text>
+          <Text style={{ fontSize: 18, color: "#000000", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Logout</Text>
           <Image style={styles.rightImg} source={require("../assets/right.png")} />
         </TouchableOpacity>
         <TouchableOpacity  onPress={() => {
