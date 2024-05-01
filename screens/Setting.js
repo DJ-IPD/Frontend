@@ -89,11 +89,11 @@ export default function Setting() {
           <View>
             <Text style={{ fontSize: 18, color: "#ADADAD", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>More</Text>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate("AboutUs")}}>
             <Text style={{ fontSize: 18, color: "#000000", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>About Us</Text>
             <Image style={styles.rightImg} source={require("../assets/right.png")} />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{navigation.navigate("PrivacyPolicy")}}>
             <Text style={{ fontSize: 18, color: "#000000", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Privacy Policy</Text>
             <Image style={styles.rightImg} source={require("../assets/right.png")} />
           </TouchableOpacity>
