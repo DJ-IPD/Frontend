@@ -3,6 +3,9 @@ import React from "react";
 import { SvgUri, SvgXml } from "react-native-svg";
 import { LinearGradient } from "expo-linear-gradient";
 import { FlatList } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
+
 const data = [
   {
     id: "1",
@@ -31,6 +34,8 @@ const data = [
   // Add more items as needed
 ];
 export default function Home() {
+  const navigation = useNavigation();
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15 0C9.82233 0 5.625 4.19733 5.625 9.375V14.901C5.625 14.9936 5.59761 15.0841 5.54627 15.1611L2.3529 19.9511C2.04128 20.4185 1.875 20.9677 1.875 21.5295C1.875 23.101 3.14897 24.375 4.72048 24.375H25.2795C26.851 24.375 28.125 23.101 28.125 21.5295C28.125 20.9677 27.9587 20.4185 27.6471 19.9511L24.4537 15.1611C24.4024 15.0841 24.375 14.9936 24.375 14.901V9.375C24.375 4.19733 20.1777 0 15 0Z" fill="#F23535"/>
@@ -92,7 +97,7 @@ export default function Home() {
         </View>
       </View>
       <View style={{ marginVertical: "5%" }}>
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate("FindPage")}}>
           <View style={{ flexDirection: "row", marginHorizontal: 8 }}>
             <View
               style={{

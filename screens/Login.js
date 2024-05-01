@@ -156,6 +156,7 @@ import {
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import axios from 'axios'; // Import axios for making HTTP requests
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function CreateAccount() {
   const navigation = useNavigation();
@@ -185,7 +186,8 @@ export default function CreateAccount() {
     .then(response => {
       // Handle response
       navigation.navigate("Tab");
-      console.log('Login successful:', response.data);
+      AsyncStorage.setItem('UID', response.data.user.UID);
+      console.log('Login successful:', response.data.user.UID);
     })
     .catch(error => {
       // Handle error
