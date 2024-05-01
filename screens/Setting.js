@@ -42,7 +42,7 @@ export default function Setting() {
           <Text style={{ fontSize: 18, color: "#000000", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Change Password</Text>
           <Image style={styles.rightImg} source={require("../assets/right.png")} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{navigation.navigate("AddPayment")}}>
           <Text style={{ fontSize: 18, color: "#000000", marginVertical: "3.5%", marginLeft: "10.5%", fontWeight: 500 }}>Add a Payment Method</Text>
           <Image style={styles.rightImg} source={require("../assets/plusg.png")} />
         </TouchableOpacity>

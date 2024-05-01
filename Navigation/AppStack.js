@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTab from "./BottomTab";
 import EditProfile from "../screens/EditProfile";
 import ChangePassword from "../screens/ChangePassword";
+import AddPayment from "../screens/AddPayment";
 
 function Tab() {
  
@@ -19,6 +20,7 @@ export default function AppStack() {
           <Stack.Screen name="Tab" component={Tab}/>
           <Stack.Screen name="EditProfile" component={EditProfile}/>
           <Stack.Screen name="ChangePassword" component={ChangePassword}/>
+          <Stack.Screen name="AddPayment" component={AddPayment}/>
 
         </Stack.Navigator>
         
