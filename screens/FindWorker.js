@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 export default function PriceCalculator() {
   const [cropType, setCropType] = useState('');
   const [workingHours, setWorkingHours] = useState('');
   const [noOfPeople, setNoOfPeople] = useState('');
   const [calculatedPrice, setCalculatedPrice] = useState(null);
+  const navigation = useNavigation();
 
   const calculatePrice = () => {
     // Prepare data object for the request
@@ -26,8 +28,13 @@ export default function PriceCalculator() {
     })
     .then(response => {
       // Handle successful response
-      AsyncStorage.setItem('price', response.data.Calculated_Price);
+      AsyncStorage.setItem('price', response.data.Calculated_Price.toString());
+      AsyncStorage.setItem('working_hours',workingHours);
+      AsyncStorage.setItem('crop_type',cropType);
+      AsyncStorage.setItem('people',noOfPeople);
       setCalculatedPrice(response.data.Calculated_Price);
+      navigation.navigate("AcceptWorkerScreen");
+
     })
     .catch(error => {
       // Handle error

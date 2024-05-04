@@ -10,6 +10,7 @@ import PrivacyPolicy from "../screens/PrivacyPolicy";
 import SignUp from "../screens/SignUp";
 import Login from "../screens/Login";
 import FindPage from "../screens/FindWorker";
+import AcceptWorkerScreen from "../screens/AcceptWorker";
 
 function Tab() {
 
@@ -31,6 +32,7 @@ export default function AppStack() {
       <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="FindPage" component={FindPage} />
+      <Stack.Screen name="AcceptWorkerScreen" component={AcceptWorkerScreen} />
 
     </Stack.Navigator>
 
